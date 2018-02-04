@@ -32,7 +32,10 @@ formulario .addEventListener( 'submit', e => {
             criptomonedaSeleccionada,                               // Criptocurrency
             monedaSeleccionada                                      // FIAT
         ). then( data => {
-            console .log( 'Cotización', data .cotizacion[ 0 ] );
+            ui .mostrarResultado(                                   // Muestra Mensaje de Cotización en el DOM
+                monedaSeleccionada .toLowerCase(),                  // Convierte a minúsculas la moneda seleccionada y la pasa como parámetro
+                data .cotizacion[ 0 ]                               // Resultado de la cotización 'Objeto' con 'Array' de datos 
+            );
         });
     }
 });
