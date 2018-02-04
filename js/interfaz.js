@@ -11,7 +11,7 @@ class Interfaz {
         this .construirSelectCriptomonedas();
     }
 
-    /* Contruye un elemento select apartir de datos (Monedas) */
+    /* Construye un elemento select apartir de datos (Monedas) */
     construirSelectCriptomonedas() {
         // Obtiene un 'Array' de monedas de la API 
         cotizador .obtenerMonedasAPI()
@@ -28,9 +28,25 @@ class Interfaz {
                     
                     option .value = moneda .id;                                         // Agrega la propiedad 'value' al elemento 'option'
                     option .appendChild( document .createTextNode( moneda .name ) );    // Agrega un nodo de texto al elemento 'option'
-                    select .appendChild( option );                                      // Agrega el elemento 'option' dentro del 'select'    
+                    select .appendChild( option );                                      // Agrega el elemento 'option' dentro del 'select' en el DOM   
                 });
             });
+    }
+
+    // Mostrar mensaje
+    mostrarMensaje( clases, mensaje ) {
+        // Crear un elemento DIV
+        const div = document .createElement( 'div' ),                                   // Crea un elemento 'div'
+              mensajes = document .querySelector( '.mensajes' );                        // Obtiene el elemento con la clase 'mensajes' en el DOM
+
+        div .className = clases;                                                        // Agrega las clases (Material Design) a la propiedad class del elemento 'div'
+        div .appendChild( document .createTextNode( mensaje ) );                        // Agrega un nodo de texto al elemento 'div'
+        mensajes .appendChild( div );                                                   // Agrega el elemento 'div' dentro del 'div' con la clase 'mensajes' en el DOM   
+
+        // Eliminar mensaje pasados 3 segundos
+        setTimeout( () => {
+            document .querySelector( '.mensajes div' ) .remove();                       // Elimina el elemento del DOM
+        }, 3000 );      // 3seg
     }
 
 }

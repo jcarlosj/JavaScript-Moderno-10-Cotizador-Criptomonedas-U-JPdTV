@@ -22,7 +22,10 @@ formulario .addEventListener( 'submit', e => {
 
     // Valida que todos los campos del formulario han sido seleccionados
     if( monedaSeleccionada === '' || criptomonedaSeleccionada === '' ) {
-        console .log( 'ERROR', 'Faltan datos...' );
+        ui .mostrarMensaje(                                         // Muestra Mensaje de Error en el DOM
+            'deep-orange darken-4 card-panel',                      // Clases de Material Design
+            'Ambos campos son obligatorios'                         // Mensaje de Error
+        );   
     }
     else {
         console .log( 'Ok!', 'Cotizar' );
