@@ -14,7 +14,7 @@ class Interfaz {
     /* Construye un elemento select apartir de datos (Monedas) */
     construirSelectCriptomonedas() {
         // Obtiene un 'Array' de monedas de la API 
-        cotizador .obtenerMonedasAPI()
+        cotizador .obtenerMonedasAPI()                                                  // 'Promise'
             .then( data => {
                 console .log( data );                                                   // Objeto con un 'Array' monedas
                 // Crear un elemento SELECT
@@ -33,7 +33,7 @@ class Interfaz {
             });
     }
 
-    // Mostrar mensaje
+    // Muestra mensaje en el DOM
     mostrarMensaje( clases, mensaje ) {
         // Crear un elemento DIV
         const div = document .createElement( 'div' ),                                   // Crea un elemento 'div'

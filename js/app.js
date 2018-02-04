@@ -11,8 +11,8 @@ formulario .addEventListener( 'submit', e => {
     const moneda = document .getElementById( 'moneda' ),                            // Obtiene el elemento con el ID 'moneda'
           monedaSeleccionada = moneda .options[ moneda .selectedIndex ] .value,     // Obtiene el valor seleccionado del elemento ID 'moneda'
     // Obtener la Criptomoneda selecionada 
-    criptomoneda = document .getElementById( 'criptomoneda' ),                                  // Obtiene el elemento con el ID 'moneda'
-    criptomonedaSeleccionada = criptomoneda .options[ criptomoneda .selectedIndex ] .value;     // Obtiene el valor seleccionado del elemento ID 'moneda'
+        criptomoneda = document .getElementById( 'criptomoneda' ),                                  // Obtiene el elemento con el ID 'moneda'
+        criptomonedaSeleccionada = criptomoneda .options[ criptomoneda .selectedIndex ] .value;     // Obtiene el valor seleccionado del elemento ID 'moneda'
     
     // TO-DEBUG
     console .group( 'Valores seleccionados' );
@@ -28,6 +28,11 @@ formulario .addEventListener( 'submit', e => {
         );   
     }
     else {
-        console .log( 'Ok!', 'Cotizar' );
+        cotizador .obtenerValores(                                  // 'Promise' Mostrar Cotización
+            criptomonedaSeleccionada,                               // Criptocurrency
+            monedaSeleccionada                                      // FIAT
+        ). then( data => {
+            console .log( 'Cotización', data .cotizacion[ 0 ] );
+        });
     }
 });
